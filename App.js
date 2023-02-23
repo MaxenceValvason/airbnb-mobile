@@ -13,6 +13,7 @@ import SignInScreen from "./containers/SignInScreen";
 import SignUpScreen from "./containers/SignUpScreen";
 import SettingsScreen from "./containers/SettingsScreen";
 import RoomScreen from "./containers/RoomScreen";
+import AroundMeScreen from "./containers/AroundMeScreen";
 import SplashScreen from "./containers/SplashScreen";
 
 const Tab = createBottomTabNavigator();
@@ -126,12 +127,12 @@ export default function App() {
                   {() => (
                     <Stack.Navigator>
                       <Stack.Screen
-                        name="Map"
+                        name="Around Me"
                         options={{
-                          title: "Map",
+                          title: "Around Me",
                         }}
                       >
-                        {() => <SettingsScreen setToken={setToken} />}
+                        {(props) => <AroundMeScreen {...props} />}
                       </Stack.Screen>
                     </Stack.Navigator>
                   )}

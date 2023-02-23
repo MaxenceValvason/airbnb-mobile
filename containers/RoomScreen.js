@@ -12,6 +12,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import axios from "axios";
 import LottieView from "lottie-react-native";
 import { SwiperFlatList } from "react-native-swiper-flatlist";
+import MapView from "react-native-maps";
 
 export default function RoomScreen() {
   const [data, setData] = useState();
@@ -89,6 +90,17 @@ export default function RoomScreen() {
           {data.description}
         </Text>
       </View>
+      <View>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: data.location[1],
+            longitude: data.location[0],
+            latitudeDelta: 0.07,
+            longitudeDelta: 0.07,
+          }}
+        />
+      </View>
     </View>
   ) : (
     <LottieView
@@ -145,5 +157,15 @@ const styles = StyleSheet.create({
   slide: {
     height: "100%",
     width: 400,
+  },
+
+  mapContainer: {
+    width: 400,
+    height: 400,
+  },
+
+  map: {
+    width: "100%",
+    height: 400,
   },
 });
